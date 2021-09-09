@@ -59,9 +59,9 @@ export function completeToDo(id) {
     setToDo(todos);
 }
 
-const fullList = document.getElementById('list-items');
 
-export function renderListItems() {
+
+export function renderListItems(fullList) {
     const listItems = getToDo();
 
     for (let list of listItems) {
