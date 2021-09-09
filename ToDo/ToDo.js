@@ -6,13 +6,16 @@ const fullList = document.getElementById('list-items');
 renderListItems(fullList);
 
 
+
 inputForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(inputForm);
     addToDo(data.get('input'));
-
+    fullList.textContent = '';
     renderListItems(fullList);
-
-
+    inputForm.reset();
+    
 });
+
+
 

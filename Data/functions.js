@@ -46,17 +46,18 @@ export function addToDo(message) {
         completed: 'false'
     };
     todos.push(newToDo);
-    setUser(todos);
+    setToDo(todos);
 }
 
 export function completeToDo(id) {
     const todos = getToDo();
-
+    
     const matchingToDo = todos.find(todo => todo.id === id);
 
     matchingToDo.completed = true;
 
     setToDo(todos);
+   
 }
 
 
@@ -72,6 +73,18 @@ export function renderListItems(fullList) {
 
         div.textContent = list.todo;
         button.textContent = 'Complete';
+
+        if (list.completed === true) {
+            div.style.textDecoration = 'line-through';
+            button.disabled = true;
+        }
+        
+
+        button.addEventListener('click', () => {
+            completeToDo(list.id);
+            div.style.textDecoration = 'line-through';
+            button.disabled = true;
+        });
 
         li.append(div);
         li.append(button);
