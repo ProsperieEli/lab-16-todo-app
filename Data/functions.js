@@ -59,4 +59,23 @@ export function completeToDo(id) {
     setToDo(todos);
 }
 
+const fullList = document.getElementById('list-items');
+
+export function renderListItems() {
+    const listItems = getToDo();
+
+    for (let list of listItems) {
+       
+        const li = document.createElement('li');
+        const div = document.createElement('div');
+        const button = document.createElement('button');
+
+        div.textContent = list.todo;
+        button.textContent = 'Complete';
+
+        li.append(div);
+        li.append(button);
+        fullList.append(li);
+    }
+}
 
